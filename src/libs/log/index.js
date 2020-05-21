@@ -12,15 +12,9 @@ export const log = (action, callback) => {
     }
     const userDocRef = Firestore.collection('users').doc(currentUser.uid);
     userDocRef.collection('activities').doc(''+dt.getTime()).set(data).then(() => {
-        userDocRef.set({'activityCount':firebase.firestore.FieldValue.increment(1)},{merge: true}).then(() => {
-            if(callback){
-                callback(true);
-            }
-        }).catch(err => {
-            if(callback){
-                callback(false);
-            }
-        });
+        if(callback){
+            callback(true);
+        }
     }).catch(err => {
         if(callback){
             callback(false);

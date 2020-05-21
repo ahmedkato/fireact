@@ -28,3 +28,4 @@ firebase.json
 .firebase/hosting.YnVpbGQ.cache
 firestore-debug.log
 functions/.eslintrc.json
+firebase-debug.log
