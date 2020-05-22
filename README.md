@@ -108,3 +108,9 @@ Now, you have the basic user management functions in your web application. Modif
 If you like this project, please click the star icon.
 
 If you would like to see improvements on this project, please consider to be a contributor.
+
+## Posts
+
+I will post articles to explain how Fireact works. If you are interested in learning Fireact, or Firebase and React, please read the following articles.
+
+- [Fireact — The open source project for you to fast track your next web app with Firebase and React](https://medium.com/@chaoming_li/fireact-the-open-source-project-for-you-to-fast-track-your-next-web-app-with-firebase-and-react-5ab98dcf9c93)
