@@ -1,5 +1,4 @@
 import { FirebaseAuth } from "../../components/FirebaseAuth/firebase";
-import * as firebase from "firebase/app";
 
 export const log = (action, callback) => {
     const Firestore = FirebaseAuth.firestore();
