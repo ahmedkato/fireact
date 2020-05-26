@@ -4,13 +4,11 @@ import { FirebaseAuth } from "../../../../components/FirebaseAuth/firebase";
 import Loader from '../../../../components/Loader';
 
 const ViewLogs = () => {
-    const Firestore = FirebaseAuth.firestore();
-    const currentUser = FirebaseAuth.auth().currentUser;
     const pageSize = 10;
 
     const [total, setTotal] = useState(0);
     const getTotal = () => {
-        const userDocRef = Firestore.collection('users').doc(currentUser.uid);
+        const userDocRef = FirebaseAuth.firestore().collection('users').doc(FirebaseAuth.auth().currentUser.uid);
         userDocRef.get().then(function(userDoc){
             if(userDoc.exists){
                 setTotal(userDoc.data().activityCount);
@@ -28,7 +26,7 @@ const ViewLogs = () => {
     const getLogs = (pageSize, lastDoc) => {
         setLoading(true);
         let records = [];
-        const collectionRef = Firestore.collection('users').doc(currentUser.uid).collection('activities');
+        const collectionRef = FirebaseAuth.firestore().collection('users').doc(FirebaseAuth.auth().currentUser.uid).collection('activities');
         let query = collectionRef.orderBy('time', 'desc');
         if(lastDoc){
             query = query.startAfter(lastDoc);
@@ -42,11 +40,11 @@ const ViewLogs = () => {
                     'action': doc.data().action
                 });
             });
-            let existingRows = rows;
-            existingRows.push.apply(existingRows, records);
-            setRows(existingRows);
-            setQs(documentSnapshots);
-            setCount(documentSnapshots.size+count);
+            if(records.length > 0){
+                setRows(rows => rows.concat(records));
+                setQs(documentSnapshots);
+                setCount(count => documentSnapshots.size+count);
+            }
             setLoading(false);
         });
     }
@@ -96,8 +94,8 @@ const ViewLogs = () => {
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                {rows.map(r => 
-                                                    <tr key={r.timestamp} row="row">
+                                                {rows.map((r,i) => 
+                                                    <tr key={r.timestamp+i} row="row">
                                                         <td>{r.action}</td>
                                                         <td>{r.time}</td>
                                                     </tr>
