@@ -114,3 +114,5 @@ If you would like to see improvements on this project, please consider to be a c
 I will post articles to explain how Fireact works. If you are interested in learning Fireact, or Firebase and React, please read the following articles.
 
 - [Fireact — The open source project for you to fast track your next web app with Firebase and React](https://medium.com/@chaoming_li/fireact-the-open-source-project-for-you-to-fast-track-your-next-web-app-with-firebase-and-react-5ab98dcf9c93)
+
+- [Fireact Part 1: Firebase authentication in React](https://medium.com/@chaoming_li/fireact-part-1-firebase-authentication-in-react-b835f6beacc5?source=friends_link&sk=26ed71ccd439fe97103416d7f4039cd7)
