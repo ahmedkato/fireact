@@ -29,3 +29,7 @@ firebase.json
 firestore-debug.log
 functions/.eslintrc.json
 firebase-debug.log
+ui-debug.log
+functions/config.json
+functions/stripe.json
+src/inc/stripe.json
